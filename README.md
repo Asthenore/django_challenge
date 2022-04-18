@@ -29,7 +29,7 @@ Now open the Django admin in a web browser: 127.0.0.1:8000/admin/
 
 ### Log in with the superuser credentials
 ### For the staff user: 
-Create an user using the user app at: http://127.0.0.1:8000/admin/user_app/customuser/add/, give it staff status, fill the email field in personal info.
+Create an user using the user app at: http://127.0.0.1:8000/admin/user_app/customuser/add/, give it staff status, fill the email field in personal info. 
 ### For the regular user: 
 Create an user using the user app at: http://127.0.0.1:8000/admin/user_app/customuser/add/, fill the personal info with First name = "Juan" and Last name = "Pérez"
 
