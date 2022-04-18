@@ -14,14 +14,8 @@ class UserAdmin(BaseUserAdmin):
       return obj.get_full_name()
    
    #User permissions
-   def has_change_permission(self, request, object=None):
-      return request.user.is_superuser
-   def has_add_permission(self, request, object=None):
-      return request.user.is_superuser
-   def has_delete_permission(self, request, object=None):
-      return request.user.is_superuser
-   def has_module_permission(self, request, object=None):
-      return request.user.is_superuser
+   def has_view_permission(self, request, object=None):
+      return request.user.is_staff
 
 
 admin.site.register(CustomUser,UserAdmin)

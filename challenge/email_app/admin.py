@@ -3,7 +3,6 @@ from django.contrib import admin
 from email_app.models import Email, EmailTemplate, Attachment
 from django.template import Context, Template
 from datetime import datetime
-from django.contrib.auth.models import Group
 import json
 
 # Register your models here.
@@ -46,10 +45,12 @@ class EmailAdmin(admin.ModelAdmin):
     super().save_model(request, obj, form, change)
 
   #User permissions
-  def has_change_permission(self, request, object=None):
-      return request.user.is_superuser
-  def has_delete_permission(self, request, object=None):
-      return request.user.is_superuser
+  def has_module_permission(self, request, object=None):
+      return request.user.is_staff
+  def has_add_permission(self, request, object=None):
+      return request.user.is_staff
+  def has_view_permission(self, request, object=None):
+      return request.user.is_staff
 
   
 class EmailTemplateAdmin(admin.ModelAdmin):
@@ -60,39 +61,25 @@ class EmailTemplateAdmin(admin.ModelAdmin):
     ]
 
   #User permissions  
-  def has_change_permission(self, request, object=None):
-      return request.user.is_superuser
-  def has_add_permission(self, request, object=None):
-      return request.user.is_superuser
-  def has_delete_permission(self, request, object=None):
-      return request.user.is_superuser
+  def has_module_permission(self, request, object=None):
+      return request.user.is_staff
+  def has_view_permission(self, request, object=None):
+      return request.user.is_staff
+
   
    
 
 class AttachmentAdmin(admin.ModelAdmin):
     
-    #User permissions  
-  def has_change_permission(self, request, object=None):
-      return request.user.is_superuser
-  def has_add_permission(self, request, object=None):
-      return request.user.is_superuser
-  def has_delete_permission(self, request, object=None):
-      return request.user.is_superuser
-
-class GroupAdmin(admin.ModelAdmin):
-
     #User permissions
-  def has_change_permission(self, request, object=None):
-      return request.user.is_superuser
-  def has_add_permission(self, request, object=None):
-      return request.user.is_superuser
-  def has_delete_permission(self, request, object=None):
-      return request.user.is_superuser
+  def has_module_permission(self, request, object=None):
+      return request.user.is_staff
   def has_view_permission(self, request, object=None):
-      return request.user.is_superuser
+      return request.user.is_staff  
+
+
 
 admin.site.register(EmailTemplate,EmailTemplateAdmin)
 admin.site.register(Email,EmailAdmin)
 admin.site.register(Attachment,AttachmentAdmin)
-admin.site.unregister(Group)
-admin.site.register(Group,GroupAdmin)
+
