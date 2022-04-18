@@ -43,4 +43,4 @@ have attached the course syllabus to this email.
 You have seven days from now ({{ timestamp }}) to complete the registration.
 Greetings from Python School!". In attachments select and upload any file.
 
-### After that log out from the superuser acount, log in as the staff user and create an email at: http://127.0.0.1:8000/admin/email_app/email/add/, select the email template and the user Juan Pérez. Save and continue editing to render the template.
+### Log out from the superuser acount, log in as the staff user and create an email at: http://127.0.0.1:8000/admin/email_app/email/add/, select the email template and the user Juan Pérez. Save and continue editing to render the template.
